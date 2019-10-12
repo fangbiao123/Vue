@@ -26,8 +26,8 @@
 
         <!-- 在数组中使用变量控制样式是否加载 也可以用三元表达式 -->
         <h1 :class="['red','thin',{'itealia':flag},flag?'itealia':'']">这是一个很大的H1！</h1>
-         <!--直接使用对象,对象属性可带可不带引号 -->
-        <h1 :class="{'red':true}"></h1>这是一个很大的H1！</h1>
+         <!--直接使用对象,对象属性可带可不带引号但是为了统一风格还是带引号比较好 -->
+        <h1 :class="classObj"></h1>这是一个很大的H1！</h1>
     </div>
     <script>
         // Vue创建实例
@@ -35,7 +35,8 @@
             el: "#app", // 表示这个Vue实例操作的是哪个区域
             data:{ //  数据
                 "message": "hallo world",
-                "flag": true
+                "flag": true,
+                "classObj":{'red':true,'itealia':true}
             },
         });
     </script>

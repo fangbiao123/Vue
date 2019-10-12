@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p id="content">{{message}}</p>
+        <hr/>
+        <!-- 普通数组 -->
+        <p v-for="(item, i) in list">value:{{item}};index:{{i}}</p>
+        <hr/>
+         <!-- 对象数组 -->
+        <p v-for="(item, i) in list_1">id:{{item.id}}value:{{item.value}};index:{{i}}</p>
+        <hr/>
+        <!-- 遍历对象的时候key在后面，value在前面 -->
+        <p v-for="(value, key, i) in listObj">键是:{{key}};值是:{{value}};索引:{{i}}</p>
+        <hr>
+        <!-- 循环数字 -->
+        <p v-for="count in number">第{{count}}次循环</p>
+    </div>
+    <script>
+        // Vue创建实例
+        var vm = new Vue({ 
+            el: "#app", // 表示这个Vue实例操作的是哪个区域
+            data:{ //  数据
+                "message": "hallo world",
+                "list": [1,2,3,4,5],
+                "list_1":[
+                    {"id":1,"value":"v1"},
+                    {"id":2,"value":"v2"},
+                    {"id":3,"value":"v3"},
+                ],
+                "listObj":{
+                    "id":1,
+                    "value":"o1"
+                },
+                number: 10
+            },
+        });
+    </script>
+</body>
+</html>

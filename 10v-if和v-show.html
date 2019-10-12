@@ -9,6 +9,11 @@
 </head>
 <body>
     <div id="app">
+        <input type="button" value="点击" @click="flag=!flag">
+        <!-- v-if 会直接删除这个html，在频繁出现消失的时候性能消耗比较大 -->
+        <p v-if="flag">这是v-if</p> 
+        <!-- v-show 只会隐藏html,在初始加载的时候比较消耗性能 -->
+        <p v-show="flag">这是v-show</p>
         
     </div>
     <script>
@@ -16,7 +21,7 @@
         var vm = new Vue({ 
             el: "#app", // 表示这个Vue实例操作的是哪个区域
             data:{ //  数据
-              
+                flag:true
             },
             methods:{
 
