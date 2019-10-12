@@ -1,0 +1,29 @@
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
+
+.DS_Store
+*.bak
+.*.swp
+*.tar
+._*
+*.pyc
+.idea/*
+venv/*
+*env/*
+*.iml
+~$*
+migrations*/*
+migrations/*
+uploads/*
+dump.rdb
+*~
+*.mako
+log/

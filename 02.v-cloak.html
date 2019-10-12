@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用v-cloak 有闪烁问题-->
+        <p v-cloak>----{{message}}+++++</p>
+        <!-- 使用v-text  没有解决闪烁问题， 会覆盖元素中所有的内容-->
+        <p v-text="msg_2">----+++++</p>
+        <!-- 使用v-html 输出html-->
+        <p v-html="msg_2"></p>
+        <!-- 使用v-bind: 绑定属性 可以被简写成：要绑定的属性， 在bind中可以写js表达式-->
+         <!-- 使用v-on:事件名 可以简写成@事件名 绑定事件 -->
+        <input type="submit" v-bind:title="message+'123'" @click="show">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                message:"hallo world",
+                msg_2: "<h1>hallo world</h1>"
+            },
+            methods:{
+                show:function(){
+                    alert("点击了表单")
+                }
+            }
+        })
+    </script>
+</body>
+</html>
