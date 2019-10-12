@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="启动" @click="start">
+        <input type="button" value="停止" @click="stop">
+        <p id="content">{{message}}</p>
+    </div>
+    <script>
+        // Vue创建实例
+        var vm = new Vue({ 
+            el: "#app", // 表示这个Vue实例操作的是哪个区域
+            data:{ //  数据
+                "message": "猥琐，一定要猥琐~~~~",
+                "intervalId": null,
+            },
+            methods:{
+                start(){
+                    var _this = this;
+                    if(!this.intervalId){
+                        this.intervalId =  setInterval(function(){
+                            // 在定时任务中使用this会指向window， 所以需要在外面给他this赋值一下
+                            var first_str = _this.message.substring(0,1);
+                            var end_str = _this.message.substring(1);
+                            _this.message = end_str + first_str ;
+                         },500);
+                    }                    
+                },
+                stop(){
+                   clearInterval(this.intervalId);
+                   this.intervalId=null;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
