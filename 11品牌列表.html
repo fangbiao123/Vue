@@ -45,7 +45,7 @@
                     <td>{{item.id}}</td>
                     <td>{{item.name}}</td>
                     <td>{{item.ctime}}</td>
-                    <td><a href="">删除</a></td>
+                    <td><a href="" @click.prevent ="del(item.id)">删除</a></td>
                 </tr>
             </tbody>
         </table>
@@ -86,6 +86,9 @@
 
                     }
                     this.id = this.name = "";
+                },
+                del(key){
+                    console.log("del-"+key)
                 }
             }
         });
